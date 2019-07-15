@@ -1,9 +1,9 @@
 title: test
 email: ngotic@kw.ac.kr
-description:        A Blog Theme by Start Bootstrap
-author:             Start Bootstrap
-baseurl:            "https://gunooknam.github.io"
-url:                 ""
+description: A Blog Theme by Start Bootstrap
+author: Start Bootstrap
+baseurl: "/gunooknam.github.io"
+#url: ""
 
 # Social Profiles
 twitter_username:   SBootstrap
