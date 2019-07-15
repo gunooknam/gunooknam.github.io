@@ -1,0 +1,81 @@
+﻿---
+layout: post
+title: "Opensource libcurl를 이용한 C++ Web_Crawling"
+date: 2019-07-15 06:30:13 -0400
+background: '/img/posts/05.jpg'
+---
+<h2 class="section-heading">libcurl</h2>
+
+<p>&nbsp; libcurl은 C, C++에서 url 관련 기능을 처리할 수 있는 open source 라이브러리다.  구글링하면 다음의 사이트가 보인다.  </p>
+
+<img class="img-fluid" src="/img/posts/cralling/libcurl.PNG" alt="Demo Image">
+
+<p> 다운로드는 아래의 github 주소에서 받을 수 있다. </p>
+
+<img class="img-fluid" src="/img/posts/cralling/cur.PNG" alt="Demo Image">
+
+<p> 다운로드를 받아보면 다양한 폴더를 확인할 수 있다. include, docs, lib 등... </p>
+
+<img class="img-fluid" src="/img/posts/cralling/download.PNG" alt="Demo Image">
+
+<p> include 파일에는 코드내에서 include 할 소스들이 들어있다. 따라서 컴파일 시점에서의 파일과 관련이 있다. 또한 lib폴더에는 
+
+링크시점에서 링크할 lib 파일이 들어있다. 그리고 추가로 winbuild라는 폴더가 있다면 이것은 window버전으로 빌드할 수 있다는 것이다. 보통은 build가 된 상태로
+
+깃허브에 올라오거나 하지만 그렇지 않다면 직접 build를 해야 한다. 즉 build라는 폴더가 있어야 한다. </p>
+
+<img class="img-fluid" src="/img/posts/cralling/vc14.PNG" alt="Demo Image">
+
+<p> vs 용 개발자 명령 프롬프트에서 위와 같이 입력하면 build라는 파일이 생성되면서 그 안에는  bin폴더, include 폴더, lib 폴더등이 생긴다. </p>
+
+<img class="img-fluid" src="/img/posts/cralling/build.PNG" alt="Demo Image">
+
+<h2 class="section-heading">Sample Code 작성</h2>
+
+<p> 일단 어떤 라이브러리든 doc문서가 있고 그 문서에는 셈플코드가 있다. libcul example를 구글에 검색하면
+아래의 코드를 확인할 수 있다.  </p>
+
+<img class="img-fluid" src="/img/posts/cralling/example.PNG" alt="Demo Image">
+
+<p>&nbsp; 하지만 다음 화면과 같이 그냥 copy해서 넣으면 빨간줄이 뜬다. 
+javascript는 npm한방이면 되고 python은 pip한방이면 되고 java는 maven에 복붙하면 dependency가 설치가 되나...
+C나 C++은 절차가 매우 귀찮다. 하지만 정리하는 김에 절차를 머리속에 넣어보자 </p>
+
+<img class="img-fluid" src="/img/posts/cralling/redline.PNG" alt="Demo Image">
+
+<p> &nbsp; 기본적으로 위에서 뜨는 상황은 컴파일 단계에서 해당 include 안의 파일을 찾지 못해서 나는 에러이다. </p>
+
+<p> 이러한 문제는 다음과 같이 추가 include path를 넣으므로써 해결가능하다. </p>
+
+<img class="img-fluid" src="/img/posts/cralling/include_add.PNG" alt="Demo Image">
+
+<p> 다시 빌드를 해보면 일단 include에서 빨간줄이 뜨는 것은 해결이 되나 에러가 난다. </p>
+
+<img class="img-fluid" src="/img/posts/cralling/linkerro1.PNG" alt="Demo Image">
+
+<p> 이러한 문제는 lib 종속성 때문에 일어나는 문제이다. 다음과 같이 lib파일이 있는 path를 추가하고 해당 lib파일을 넣어준다. </p>
+
+<img class="img-fluid" src="/img/posts/cralling/lib_path_add.PNG" alt="Demo Image">
+
+<img class="img-fluid" src="/img/posts/cralling/libcur_add.PNG" alt="Demo Image">
+
+<p> 이래도 에러가 또 뜰 수 있다. dll이 필요하다고 한다. 이럴 때 마찬가지로 dll위치를 또 참조하게 하는 방법이 있지만 가장 확실한 방법은
+
+dll 파일을 project 파일로 옮기는 것 </p>
+
+<img class="img-fluid" src="/img/posts/cralling/error2.PNG" alt="Demo Image">
+
+<img class="img-fluid" src="/img/posts/cralling/searchdii.PNG" alt="Demo Image">
+
+<p style="text-align:center"> 검색하면 다 찾아진다. 이걸 프로젝트 파일에 옮기면 다음과 같이 코드가 동작된다. </p>
+
+<img class="img-fluid" src="/img/posts/cralling/final.PNG" alt="Demo Image">
+
+<p style="text-align:center"> " callback함수를 넣고 거기서 content를 받아오면 buffer에 넣고 그 내용을 출력하는 코드 " </p>
+
+<p> <h2>정리</h2> </p>
+<p> <h3>1. include path 추가</h3> </p>
+<p> <h3>2. lib path 추가</h3> </p>
+<p> <h3>3. lib file 추가</h3> </p>
+<p> <h3>4. dll이 필요하다면 project에 link</h3> </p>
+

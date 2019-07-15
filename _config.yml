@@ -1,13 +1,13 @@
-title: test
+﻿title: Gunook's Techblog
 email: ngotic@kw.ac.kr
-description: A Blog Theme by Start Bootstrap
+description: 아직은 쓸 글이 없네
 author: Start Bootstrap
-baseurl: ""
+baseurl: "" 		# context root 같은 위치이다. 
 #url: ""
 
 # Social Profiles
 twitter_username:   SBootstrap
-github_username:    BlackrockDigital
+github_username:    gunooknam
 facebook_username:  StartBootstrap
 linkedin_username:
 
