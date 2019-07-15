@@ -1,9 +1,9 @@
-title:                test
-email:               ngotic@kw.ac.kr
+title:              test
+email:              ngotic@kw.ac.kr
 description:        A Blog Theme by Start Bootstrap
 author:             Start Bootstrap
 baseurl:            "/startbootstrap-clean-blog-jekyll"
-url:                "https://blackrockdigital.github.io"
+url:                "https://gunooknam.github.io"
 
 # Social Profiles
 twitter_username:   SBootstrap
